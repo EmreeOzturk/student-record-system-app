@@ -15,12 +15,9 @@ export default function Home() {
           Start Your Journey Today
         </h3>
       </div>
-      <div className="mt-4 h-96 w-full relative">
+      <div className="mt-4 h-80 w-full relative">
         <Image
           src={home}
-          sizes="
-        (max-width: 640px) 100vw,
-        "
           alt="home"
           fill
         />

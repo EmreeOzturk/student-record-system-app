@@ -16,11 +16,19 @@ const SignInButtonDropdown = () => {
 
       {isOpen && (
         <div className="dropdown">
-          <Link className="dropdown_link" href="/studentlogin">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            className="dropdown_link"
+            href="/studentlogin"
+          >
             Student
           </Link>
 
-          <Link className="dropdown_link" href="/instructorlogin">
+          <Link
+            onClick={() => setIsOpen(!isOpen)}
+            className="dropdown_link"
+            href="/instructorlogin"
+          >
             Instructor
           </Link>
         </div>
