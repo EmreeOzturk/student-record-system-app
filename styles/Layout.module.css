@@ -1,0 +1,65 @@
+.imgStyle {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-500 rounded-l-md overflow-hidden;
+  position: relative;
+}
+.cartoonImage {
+  background-image: url("/assets/img2.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+  z-index: 1;
+}
+
+.cloud_one {
+  background-image: url("/assets/cloud_1.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 180px;
+  height: 100px;
+  background-size: contain;
+  z-index: 2;
+  animation: cloud_one 10s linear infinite;
+}
+.cloud_two {
+  background-image: url("/assets/cloud_2.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  z-index: 0;
+  animation: cloud_two 15s linear infinite;
+}
+
+@keyframes cloud_one {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes cloud_two {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
