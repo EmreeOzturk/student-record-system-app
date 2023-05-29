@@ -8,8 +8,8 @@ const StudentPage = () => {
     <div>
       {/* <Events /> */}
       {/* <Courses /> */}
-      {/* <Grades /> */}
-      <PersonalInformation />
+      <Grades />
+      {/* <PersonalInformation /> */}
     </div>
   );
 };
