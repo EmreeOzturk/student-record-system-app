@@ -1,17 +1,17 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-
+import { SlLogin } from 'react-icons/sl';
 const SignInButtonDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-md border border-black px-6 py-2 
+        className=" gap-2 border border-black px-6 py-2 
   rounded-full black_btn relative "
       >
-        Sign in
+        <SlLogin /> Sign in
       </button>
 
       {isOpen && (

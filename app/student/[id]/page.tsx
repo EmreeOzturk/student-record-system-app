@@ -4,6 +4,8 @@ import Courses from '@/components/common/student/Courses';
 import Grades from '@/components/common/student/Grades';
 import PersonalInformation from '@/components/common/student/PersonalInfo';
 const StudentPage = () => {
+
+
   return (
     <div>
       {/* <Events /> */}

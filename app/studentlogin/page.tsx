@@ -3,6 +3,8 @@
 import React from 'react';
 import styles from '@/styles/Form.module.css';
 import Layout from '@/components/layout/Layout';
+import { SiMaildotru } from 'react-icons/si';
+import { HiFingerPrint } from 'react-icons/hi';
 const StudentLoginPage = () => {
   return (
     <Layout>
@@ -19,21 +21,21 @@ const StudentLoginPage = () => {
         <form className="flex flex-col gap-5">
           <div className={styles.input_group}>
             <input
+              type="number"
+              name="id"
+              placeholder="Student ID"
+              className={styles.input_text}
+            />
+            <SiMaildotru color="#999" />
+          </div>
+          <div className={styles.input_group}>
+            <input
               type="email"
               name="email"
               placeholder="Email"
               className={styles.input_text}
             />
-            {/* <SiMaildotru color="#999" /> */}
-          </div>
-          <div className={styles.input_group}>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className={styles.input_text}
-            />
-            {/* <HiFingerPrint color="#999" /> */}
+            <HiFingerPrint color="#999" />
           </div>
 
           <div className="input-button">

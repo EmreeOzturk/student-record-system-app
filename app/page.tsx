@@ -1,5 +1,11 @@
 import Image from 'next/image';
 import home from '@/public/assets/home4.png';
+import {
+  LoginButton,
+  LogoutButton,
+  ProfileButton,
+  RegisterButton,
+} from '@/components/buttons.component';
 export default function Home() {
   return (
     <section className="flex  justify-center items-center w-10/12  mx-auto min-h-screen ">
@@ -16,11 +22,7 @@ export default function Home() {
         </h3>
       </div>
       <div className="mt-4 h-80 w-full relative">
-        <Image
-          src={home}
-          alt="home"
-          fill
-        />
+        <Image src={home} alt="home" fill />
       </div>
     </section>
   );
