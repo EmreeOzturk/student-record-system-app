@@ -23,8 +23,6 @@ const StudentPage = async ({
       cache: 'no-cache',
     }).then((res) => res.json()),
   ]);
-
-  console.log(courses);
   return (
     <div>
       <StudentPageContainer info={info[0]} events={events} courses={courses} grades={grades}/>

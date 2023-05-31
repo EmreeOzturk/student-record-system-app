@@ -1,7 +1,6 @@
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
 const API_PREFIX = 'http://localhost:3000/api';
 
-
 const InstructorPage = async ({
   params,
 }: {
@@ -9,8 +8,6 @@ const InstructorPage = async ({
     id: string;
   };
 }) => {
-
-
   const [info, events, courses] = await Promise.all([
     fetch(`${API_PREFIX}/getInstructorInfo/${params.id}`, {
       cache: 'no-cache',
@@ -25,11 +22,13 @@ const InstructorPage = async ({
 
   return (
     <div>
-      <InstructorPageContainer
+      {/* <InstructorPageContainer
         info={info[0]}
         events={events}
         courses={courses}
-      />
+      /> */}
+
+      <h1>asdasdasd</h1>
     </div>
   );
 };
