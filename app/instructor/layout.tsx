@@ -7,7 +7,6 @@ const InstructorLayout = ({ children }: { children: React.ReactNode }) => {
   const setMenuName = useInstructorMenuStore((state: any) => state.setMenuName);
   console.log(menuName);
   return (
-    // left sidebar
     <div>
       <div
         className="

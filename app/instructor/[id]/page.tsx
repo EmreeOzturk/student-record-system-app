@@ -14,7 +14,7 @@ const InstructorPage = async ({
   const [events, setEvents] = useState([]);
   useEffect(() => {
     const fetchInstructorInfo = async (id: string) => {
-      const res = await fetch(`/getInstructorInfo/${id}`, {
+      const res = await fetch(`/api/getInstructorInfo/${id}`, {
         cache: 'no-cache',
       });
       const data = await res.json();
@@ -22,7 +22,7 @@ const InstructorPage = async ({
       return data;
     };
     const fetchInstructorCourses = async (id: string) => {
-      const res = await fetch(`/getInstructorCourses/${id}`, {
+      const res = await fetch(`/api/getInstructorCourses/${id}`, {
         cache: 'no-cache',
       });
       const data = await res.json();
@@ -31,7 +31,7 @@ const InstructorPage = async ({
     };
 
     const fetchInstructorEvents = async () => {
-      const res = await fetch(`/getEvents`, {
+      const res = await fetch(`/api/getEvents`, {
         cache: 'no-cache',
       });
       const data = await res.json();
