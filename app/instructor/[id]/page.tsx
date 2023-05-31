@@ -1,9 +1,8 @@
 'use client';
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
-const API_PREFIX = 'http://localhost:3000/api';
 import { useEffect, useState } from 'react';
 const fetchInstructorInfo = async (id: string) => {
-  const res = await fetch(`${API_PREFIX}/getInstructorInfo/${id}`, {
+  const res = await fetch(`/getInstructorInfo/${id}`, {
     cache: 'no-cache',
   });
   const data = await res.json();
@@ -11,7 +10,7 @@ const fetchInstructorInfo = async (id: string) => {
 };
 
 const fetchInstructorCourses = async (id: string) => {
-  const res = await fetch(`${API_PREFIX}/getInstructorCourses/${id}`, {
+  const res = await fetch(`/getInstructorCourses/${id}`, {
     cache: 'no-cache',
   });
   const data = await res.json();
@@ -19,7 +18,7 @@ const fetchInstructorCourses = async (id: string) => {
 };
 
 const fetchInstructorEvents = async () => {
-  const res = await fetch(`${API_PREFIX}/getEvents`, {
+  const res = await fetch(`/getEvents`, {
     cache: 'no-cache',
   });
   const data = await res.json();

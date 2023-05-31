@@ -14,13 +14,12 @@ const InstructorPageContainer = ({
   events: any;
   courses: any;
 }) => {
-  console.log(info);
   const menuName = useInstructorMenuStore((state: any) => state.menuName);
   return (
     <div>
-      {/* {menuName === 'Personal Information' && (
+      {menuName === 'Personal Information' && (
         <PersonalInformation data={info} />
-      )} */}
+      )}
       {menuName === 'Grades' && <Grades data={courses} />}
       {menuName === 'Courses' && <Courses data={courses} />}
       {menuName === 'Events' && <Events data={events} />}
