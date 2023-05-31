@@ -60,6 +60,13 @@ type Events = {
   location: string;
 };
 
+type StudentAndHours = {
+  id: number;
+  first_name: string;
+  last_name: string;
+  total_hours: number;
+}
+
 type InstructorCourses = {
   course_id: number;
 };
