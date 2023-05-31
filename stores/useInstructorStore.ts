@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const useInstructorMenuStore = create((set) => ({
-  menuName: 'Personal Information',
+  menuName: 'none',
   setMenuName: (menuName: string) => set({ menuName }),
 }));
 

@@ -17,6 +17,7 @@ const InstructorPageContainer = ({
   const menuName = useInstructorMenuStore((state: any) => state.menuName);
   return (
     <div>
+      {menuName === 'none' && <h1>asdasdsadas</h1>}
       {menuName === 'Personal Information' && (
         <PersonalInformation data={info} />
       )}
