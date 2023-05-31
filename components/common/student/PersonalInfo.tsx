@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function PersonalInformation({ data }: { data: Student }) {
   const [editMode, setEditMode] = useState(false);
-  const [info, setInfo] = useState({
+  const [info, setInfo] = useState<any>({
     'Student Id': data.id,
     'First Name': data.first_name,
     'Last Name': data.last_name,
