@@ -1,29 +1,6 @@
 'use client';
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
 import { useEffect, useState } from 'react';
-const fetchInstructorInfo = async (id: string) => {
-  const res = await fetch(`/getInstructorInfo/${id}`, {
-    cache: 'no-cache',
-  });
-  const data = await res.json();
-  return data;
-};
-
-const fetchInstructorCourses = async (id: string) => {
-  const res = await fetch(`/getInstructorCourses/${id}`, {
-    cache: 'no-cache',
-  });
-  const data = await res.json();
-  return data;
-};
-
-const fetchInstructorEvents = async () => {
-  const res = await fetch(`/getEvents`, {
-    cache: 'no-cache',
-  });
-  const data = await res.json();
-  return data;
-};
 
 const InstructorPage = async ({
   params,
@@ -36,9 +13,35 @@ const InstructorPage = async ({
   const [courses, setCourses] = useState([]);
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    fetchInstructorInfo(params.id).then((data) => setInfo(data));
-    fetchInstructorCourses(params.id).then((data) => setCourses(data));
-    fetchInstructorEvents().then((data) => setEvents(data));
+    const fetchInstructorInfo = async (id: string) => {
+      const res = await fetch(`/getInstructorInfo/${id}`, {
+        cache: 'no-cache',
+      });
+      const data = await res.json();
+      setInfo(data);
+      return data;
+    };
+    const fetchInstructorCourses = async (id: string) => {
+      const res = await fetch(`/getInstructorCourses/${id}`, {
+        cache: 'no-cache',
+      });
+      const data = await res.json();
+      setCourses(data);
+      return data;
+    };
+
+    const fetchInstructorEvents = async () => {
+      const res = await fetch(`/getEvents`, {
+        cache: 'no-cache',
+      });
+      const data = await res.json();
+      setEvents(data);
+      return data;
+    };
+
+    fetchInstructorInfo(params.id);
+    fetchInstructorCourses(params.id);
+    fetchInstructorEvents();
   }, []);
 
   return (
