@@ -11,10 +11,8 @@ const AddInstructor = () => {
     phone: '',
     department_id: 0,
   });
-  console.log(formData);
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
     await fetch('/api/createInstructor', {
       method: 'POST',
       headers: {

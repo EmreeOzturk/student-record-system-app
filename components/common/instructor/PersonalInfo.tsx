@@ -5,15 +5,15 @@ import { useState } from 'react';
 export default function PersonalInformation({ data }: { data: Instructor }) {
   const [editMode, setEditMode] = useState(false);
   const [info, setInfo] = useState<any>({
-    'Instructor id': data.id,
-    'First Name': data.first_name,
-    'Last Name': data.last_name,
-    Gender: data.gender,
+    'Instructor id': data?.id,
+    'First Name': data?.first_name,
+    'Last Name': data?.last_name,
+    Gender: data?.gender,
     'Birth Date':
-      new Date(data.birth_date).toLocaleDateString() ?? 'Not Available',
-    Email: data.email,
-    Phone: data.phone,
-    'Department Name': data.department_name,
+      new Date(data?.birth_date).toLocaleDateString() ?? 'Not Available',
+    Email: data?.email,
+    Phone: data?.phone,
+    'Department Name': data?.department_name,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

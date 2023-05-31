@@ -9,7 +9,6 @@ export async function POST(request: Request) {
   });
 
 
-  console.log('body data' + body);
   const data = await prisma.$queryRaw`
     UPDATE students SET
     first_name = ${body?.['First Name']},

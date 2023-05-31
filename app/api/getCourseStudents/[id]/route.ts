@@ -19,7 +19,6 @@ export async function GET(
    FROM students, student_courses 
     WHERE student_courses.course_id = ${id} AND student_courses.student_id = students.id`;
 
-  console.log('dasdadwqlodşkqwdq' + data);
 
   return NextResponse.json(data);
 }

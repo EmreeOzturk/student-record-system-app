@@ -3,20 +3,23 @@ import { Student } from '@/types';
 import { useState } from 'react';
 
 export default function PersonalInformation({ data }: { data: Student }) {
+
+  
+  console.log(data);
   const [editMode, setEditMode] = useState(false);
   const [info, setInfo] = useState<any>({
-    'Student Id': data.id,
-    'First Name': data.first_name,
-    'Last Name': data.last_name,
-    Email: data.email,
-    Address: data.address,
-    Phone: data.phone,
+    'Student Id': data?.id,
+    'First Name': data?.first_name,
+    'Last Name': data?.last_name,
+    Email: data?.email,
+    Address: data?.address,
+    Phone: data?.phone,
     'Birth Date':
-      new Date(data.birth_date).toLocaleDateString() ?? 'Not Available',
-    Gender: data.gender === 'f' ? 'Female' : 'Male',
+      new Date(data?.birth_date).toLocaleDateString() ?? 'Not Available',
+    Gender: data?.gender === 'f' ? 'Female' : 'Male',
     'Enrollment Date':
-      new Date(data.enrollment_date).toLocaleDateString() ?? 'Not Available',
-    'Department Name': data.department_name,
+      new Date(data?.enrollment_date).toLocaleDateString() ?? 'Not Available',
+    'Department Name': data?.department_name,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

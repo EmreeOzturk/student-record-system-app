@@ -58,7 +58,7 @@ const Grades = ({ data }: { data: Course[] }) => {
       </div>
       <div>
         <table className="table-auto w-full rounded-lg overflow-hidden shadow-lg my-2">
-          <thead className="bg-gradient-to-r from-green-400 to-blue-500 text-white">
+          <thead className="bg-gradient-to-r from-white to-gray-600 text-black">
             <tr>
               <th className="border border-black px-4 py-2">Student Name</th>
               <th className="border border-black px-4 py-2">Student ID</th>

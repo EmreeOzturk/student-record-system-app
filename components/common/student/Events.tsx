@@ -28,21 +28,21 @@ const Events = ({ data }: { data: Events[] }) => {
           <tbody className="bg-white">
             {data.map((event) => (
               <tr key={event.title}>
-                <td className="border border-black text-center ">
+                <td className="border px-4 py-2 border-black text-center ">
                   {event.title}
                 </td>
-                <td className="border border-black text-center ">
+                <td className="border px-4 py-2 border-black text-center ">
                   {event.description}
                 </td>
 
-                <td className="border border-black text-center ">
+                <td className="border px-4 py-2 border-black text-center ">
                   {new Date(event.event_date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
                   })}
                 </td>
-                <td className="border border-black text-center ">
+                <td className="border px-4 py-2 border-black text-center ">
                   {event.location}
                 </td>
               </tr>

@@ -9,7 +9,6 @@ export async function POST(
 ) {
     const id = parseInt(params.id);
     const body = await req.json();
-    console.log(body);
     const data = await prisma.$queryRaw`UPDATE grades
     SET midterm_grade = ${parseInt(body.midterm_grade)},
     final_grade = ${parseInt(body.final_grade)}, 

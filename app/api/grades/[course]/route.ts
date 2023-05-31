@@ -8,7 +8,6 @@ export async function GET(
   { params }: { params: { course: string } },
 ) {
   const courseId = parseInt(params.course);
-  console.log(courseId);
   const data = await prisma.$queryRaw`SELECT
             students.id as student_id,
             students.first_name as first_name,
@@ -24,6 +23,5 @@ export async function GET(
         FROM students, grades
         WHERE grades.course_id = ${courseId} AND students.id = grades.student_id`;
 
-  console.log(data);
   return NextResponse.json(data);
 }

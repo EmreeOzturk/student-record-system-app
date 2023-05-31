@@ -21,5 +21,6 @@ export async function GET(
     FROM students , departments 
     WHERE students.id = ${id} AND students.department_id = departments.id`;
 
+
   return NextResponse.json(data);
 }

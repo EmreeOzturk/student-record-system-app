@@ -68,7 +68,7 @@ const StudentPage = ({
   return (
     <div>
       <StudentPageContainer
-        info={info[0]}
+        id={params.id}
         events={events}
         courses={courses}
         grades={grades}

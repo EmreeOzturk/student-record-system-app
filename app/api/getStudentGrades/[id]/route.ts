@@ -20,7 +20,6 @@ export async function GET(
     AND grades.course_id = courses.id
     `;
 
-  console.log('dasdadwqlodşkqwdq' + data);
 
   return NextResponse.json(data);
 }
