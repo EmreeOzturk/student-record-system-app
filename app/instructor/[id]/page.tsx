@@ -32,15 +32,11 @@ const InstructorPage = async ({
     id: string;
   };
 }) => {
-  const info = fetchInstructorCourses(params.id);
-  const courses = fetchInstructorCourses(params.id);
-  const events = fetchInstructorEvents();
+  const info = await fetchInstructorInfo(params.id);
+  const courses = await fetchInstructorCourses(params.id);
+  const events = await fetchInstructorEvents();
 
-  const [infodata, coursesdata, eventsdata] = await Promise.all([
-    info,
-    courses,
-    events,
-  ]);
+ 
 
   return (
     <div>
