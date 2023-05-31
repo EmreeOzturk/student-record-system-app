@@ -1,22 +1,6 @@
-import Events from '@/components/common/instructor/Events';
-import PersonalInformation from '@/components/common/instructor/PersonalInfo';
+import InstructorPageContainer from '@/containers/InstructorPageContainer';
 const API_PREFIX = 'http://localhost:3000/api';
-// const getInstructorData = async (id: string) => {
-//   const res = await fetch(`${API_PREFIX}/getInstructorInfo/${id}`, {
-//     cache: 'no-cache',
-//   });
-//   const data = await res.json();
-//   return data;
-// };
 
-const getEvents = async () => {
-  const res = await fetch(`${API_PREFIX}/getEvents`, {
-    cache: 'no-cache',
-  });
-  const data = await res.json();
-  // console.log(data);
-  return data;
-};
 
 const InstructorPage = async ({
   params,
@@ -25,13 +9,27 @@ const InstructorPage = async ({
     id: string;
   };
 }) => {
-  // const info = await getInstructorData(params.id);
-  const events = await getEvents();
-  // console.log(events);
+
+
+  const [info, events, courses] = await Promise.all([
+    fetch(`${API_PREFIX}/getInstructorInfo/${params.id}`, {
+      cache: 'no-cache',
+    }).then((res) => res.json()),
+    fetch(`${API_PREFIX}/getEvents`, {
+      cache: 'no-cache',
+    }).then((res) => res.json()),
+    fetch(`${API_PREFIX}/getInstructorCourses/${params.id}`, {
+      cache: 'no-cache',
+    }).then((res) => res.json()),
+  ]);
+
   return (
     <div>
-      {/* <PersonalInformation data={info[0]} /> */}
-      <Events data={events} />
+      <InstructorPageContainer
+        info={info[0]}
+        events={events}
+        courses={courses}
+      />
     </div>
   );
 };

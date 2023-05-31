@@ -1,6 +1,7 @@
+import { StudentGrades } from '@/types';
 import React from 'react';
 
-const Grades = () => {
+const Grades = ({ data }: { data: StudentGrades[] }) => {
   return (
     <div
       className="
@@ -18,34 +19,28 @@ items-center
               <th className="px-4 py-2">Course Name</th>
               <th className="px-4 py-2">Midterm Grade</th>
               <th className="px-4 py-2">Final Grade</th>
+              <th className="px-4 py-2">Quiz</th>
+              <th className="px-4 py-2">Homework</th>
               <th className="px-4 py-2">Average Grade</th>
             </tr>
           </thead>
           <tbody className="bg-white">
-            <tr>
-              <td className="border px-4 py-2">courseName</td>
-              <td className="border px-4 py-2">Midterm Grade</td>
-              <td className="border px-4 py-2">Final Grade</td>
-              <td className="border px-4 py-2">Average Grade</td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">courseName</td>
-              <td className="border px-4 py-2">Midterm Grade</td>
-              <td className="border px-4 py-2">Final Grade</td>
-              <td className="border px-4 py-2">Average Grade</td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">courseName</td>
-              <td className="border px-4 py-2">Midterm Grade</td>
-              <td className="border px-4 py-2">Final Grade</td>
-              <td className="border px-4 py-2">Average Grade</td>
-            </tr>
-            <tr>
-              <td className="border px-4 py-2">courseName</td>
-              <td className="border px-4 py-2">Midterm Grade</td>
-              <td className="border px-4 py-2">Final Grade</td>
-              <td className="border px-4 py-2">Average Grade</td>
-            </tr>
+            {data.map((grade) => (
+              <tr key={grade.id}>
+                <td className="border px-4 py-2">{grade.course_name}</td>
+                <td className="border px-4 py-2">{grade.midterm_grade}</td>
+                <td className="border px-4 py-2">{grade.final_grade}</td>
+                <td className="border px-4 py-2">{grade.quiz}</td>
+                <td className="border px-4 py-2">{grade.homework}</td>
+                <td className="border px-4 py-2">
+                  {(grade.midterm_grade +
+                    grade.final_grade +
+                    grade.quiz +
+                    grade.homework) /
+                    4}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

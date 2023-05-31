@@ -6,7 +6,6 @@ export async function GET(
   { params }: { params: { id: string } },
 ) {
   const id = parseInt(params.id);
-  console.log('routeeeee' + id);
   const data = await prisma.$queryRaw`SELECT 
     instructors.id as id,
     instructors.first_name as first_name,
@@ -17,5 +16,7 @@ export async function GET(
     phone as phone,
     departments.name as department_name
     FROM instructors , departments WHERE instructors.id = ${id} AND instructors.department_id = departments.id`;
+
+    console.log("dasdadwqlodşkqwdq"+data)
   return NextResponse.json(data);
 }

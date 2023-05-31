@@ -33,7 +33,6 @@ const Events = ({ data }: { data: Events[] }) => {
     router.refresh();
   };
 
-  console.log(data);
   const router = useRouter();
   const deleteHandler = async (id: number) => {
     const res = await fetch(`/api/deleteEvent/${id}`, {
@@ -55,7 +54,7 @@ const Events = ({ data }: { data: Events[] }) => {
     >
       <div>
         <table className="table-auto w-full ml-40 rounded-lg overflow-hidden shadow-lg my-2">
-          <thead className="bg-gradient-to-r from-green-400 to-blue-500 text-white">
+          <thead className="bg-gradient-to-r from-white to-gray-600 text-black">
             <tr>
               <th className="border border-black px-4 py-2">Event Title</th>
               <th className="border border-black px-4 py-2">
@@ -66,7 +65,7 @@ const Events = ({ data }: { data: Events[] }) => {
               <th className="border border-black px-4 py-2">Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-white ">
+          <tbody className="bg-transparent ">
             {data.map((event) => (
               <tr key={event.title}>
                 {editMode && which === event.id ? (
@@ -172,7 +171,7 @@ const Events = ({ data }: { data: Events[] }) => {
                           });
                           setEditMode(true);
                         }}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
                       >
                         <AiTwotoneEdit />
                       </button>
@@ -180,7 +179,7 @@ const Events = ({ data }: { data: Events[] }) => {
                         onClick={() => {
                           deleteHandler(event.id);
                         }}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
                       >
                         <AiTwotoneDelete />
                       </button>
