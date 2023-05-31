@@ -1,3 +1,4 @@
+'use client';
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
 const API_PREFIX = 'http://localhost:3000/api';
 
@@ -36,11 +37,13 @@ const InstructorPage = async ({
   const courses = await fetchInstructorCourses(params.id);
   const events = await fetchInstructorEvents();
 
- 
-
   return (
     <div>
-      <h1>asdasdasdsa</h1>
+      <InstructorPageContainer
+        info={info[0]}
+        courses={courses}
+        events={events}
+      />
     </div>
   );
 };
