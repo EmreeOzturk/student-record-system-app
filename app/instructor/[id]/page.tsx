@@ -2,7 +2,7 @@
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
 import { useEffect, useState } from 'react';
 
-const InstructorPage = async ({
+const InstructorPage = ({
   params,
 }: {
   params: {
@@ -12,6 +12,8 @@ const InstructorPage = async ({
   const [info, setInfo] = useState([]);
   const [courses, setCourses] = useState([]);
   const [events, setEvents] = useState([]);
+
+
   useEffect(() => {
     const fetchInstructorInfo = async (id: string) => {
       const res = await fetch(`/api/getInstructorInfo/${id}`, {
@@ -42,7 +44,11 @@ const InstructorPage = async ({
     fetchInstructorInfo(params.id);
     fetchInstructorCourses(params.id);
     fetchInstructorEvents();
+    console.log(info);
+    console.log(events);
   }, []);
+
+  console.log(info);
 
   return (
     <div>

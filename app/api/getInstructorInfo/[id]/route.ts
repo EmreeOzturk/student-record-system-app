@@ -16,7 +16,7 @@ export async function GET(
     phone as phone,
     departments.name as department_name
     FROM instructors , departments WHERE instructors.id = ${id} AND instructors.department_id = departments.id`;
-
+    console.log("istek geldi")
     console.log("dasdadwqlodşkqwdq"+data)
   return NextResponse.json(data);
 }
