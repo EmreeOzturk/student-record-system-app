@@ -1,31 +1,78 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import StudentPageContainer from '@/containers/StudentPageContainer';
-const API_PREFIX = 'http://localhost:3000/api';
 
-const StudentPage = async ({
+const StudentPage = ({
   params,
 }: {
   params: {
     id: string;
   };
 }) => {
-  const [info, events, courses, grades] = await Promise.all([
-    fetch(`${API_PREFIX}/getStudentInfo/${params.id}`, {
-      cache: 'no-cache',
-    }).then((res) => res.json()),
-    fetch(`${API_PREFIX}/getEvents`, {
-      cache: 'no-cache',
-    }).then((res) => res.json()),
-    fetch(`${API_PREFIX}/getStudentCourses/${params.id}`, {
-      cache: 'no-cache',
-    }).then((res) => res.json()),
-    fetch(`${API_PREFIX}/getStudentGrades/${params.id}`, {
-      cache: 'no-cache',
-    }).then((res) => res.json()),
-  ]);
+  const [info, setInfo] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [grades, setGrades] = useState([]);
+
+  useEffect(() => {
+    const fetchStudentInfo = async (id: string) => {
+      const res = await fetch(`/api/getStudentInfo/${id}`, {
+        cache: 'no-cache',
+      });
+      const data = await res.json();
+      setInfo(data);
+      return data;
+    };
+
+    const fetchStudentEvents = async () => {
+      const res = await fetch(`/api/getEvents`, {
+        cache: 'no-cache',
+      });
+      const data = await res.json();
+      setEvents(data);
+      return data;
+    };
+
+    const fetchStudentCourses = async (id: string) => {
+      const res = await fetch(`/api/getStudentCourses/${id}`, {
+        cache: 'no-cache',
+      });
+
+      const data = await res.json();
+      setCourses(data);
+
+      return data;
+    };
+
+    const fetchStudentGrades = async (id: string) => {
+      const res = await fetch(`/api/getStudentGrades/${id}`, {
+        cache: 'no-cache',
+      });
+
+      const data = await res.json();
+      setGrades(data);
+
+      return data;
+    };
+
+    fetchStudentInfo(params.id);
+    fetchStudentEvents();
+    fetchStudentCourses(params.id);
+    fetchStudentGrades(params.id);
+  }, []);
+
+  console.log(info);
+  console.log(events);
+  console.log(courses);
+
   return (
     <div>
-      <StudentPageContainer info={info[0]} events={events} courses={courses} grades={grades}/>
+      <StudentPageContainer
+        info={info[0]}
+        events={events}
+        courses={courses}
+        grades={grades}
+      />
     </div>
   );
 };

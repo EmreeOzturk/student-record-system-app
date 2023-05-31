@@ -32,7 +32,7 @@ const Grades = ({ data }: { data: Course[] }) => {
 
   useEffect(() => {
       const fetchGrades = async () => {
-        const res = await fetch(`http://localhost:3000/api/grades/${course}`, {
+        const res = await fetch(`/api/grades/${course}`, {
           cache: 'no-cache',
         });
         const data = await res.json();
