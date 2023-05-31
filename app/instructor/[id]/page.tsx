@@ -1,7 +1,7 @@
 'use client';
 import InstructorPageContainer from '@/containers/InstructorPageContainer';
 const API_PREFIX = 'http://localhost:3000/api';
-
+import { useEffect, useState } from 'react';
 const fetchInstructorInfo = async (id: string) => {
   const res = await fetch(`${API_PREFIX}/getInstructorInfo/${id}`, {
     cache: 'no-cache',
@@ -33,9 +33,14 @@ const InstructorPage = async ({
     id: string;
   };
 }) => {
-  const info = await fetchInstructorInfo(params.id);
-  const courses = await fetchInstructorCourses(params.id);
-  const events = await fetchInstructorEvents();
+  const [info, setInfo] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    fetchInstructorInfo(params.id).then((data) => setInfo(data));
+    fetchInstructorCourses(params.id).then((data) => setCourses(data));
+    fetchInstructorEvents().then((data) => setEvents(data));
+  }, []);
 
   return (
     <div>
