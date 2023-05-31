@@ -1,6 +1,6 @@
 'use client';
 import { StudentAndHours } from '@/types';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 
 const ViewStudents = () => {
   const [data, setData] = useState([]);
@@ -8,8 +8,6 @@ const ViewStudents = () => {
     fetch('/api/getAllStudents')
       .then((res) => res.json())
       .then((data) => setData(data));
-
-    console.log(data);
   }, []);
 
   return (
