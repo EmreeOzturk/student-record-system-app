@@ -28,12 +28,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-export async function getServerSideProps(context: any) {
-  console.log(context);
-  return {
-    props: {
-      name: 'asd',
-    },
-  };
-}
