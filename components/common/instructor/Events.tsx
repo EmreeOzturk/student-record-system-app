@@ -1,7 +1,6 @@
-// events ekleyip silme ve düzenleme işlemleri yapılacak
 'use client';
-import { Events } from '@/types';
-import { useState } from 'react';
+// import { Events } from '@/types';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   AiTwotoneDelete,
@@ -9,7 +8,8 @@ import {
   AiOutlineCheck,
   AiOutlineClose,
 } from 'react-icons/ai';
-const Events = ({ data }: { data: Events[] }) => {
+const Events = () => {
+  const [eventss, setEventss] = useState();
   const [editMode, setEditMode] = useState(false);
   const [which, setWhich] = useState(0);
   const [info, setInfo] = useState({
@@ -33,13 +33,27 @@ const Events = ({ data }: { data: Events[] }) => {
     router.refresh();
   };
 
+  useEffect(() => {
+    fetchInstructorEvents();
+  }, [editMode]);
+
+  const fetchInstructorEvents = async () => {
+    const res = await fetch(`/api/getEvents`, {
+      cache: 'no-cache',
+    });
+    const data = await res.json();
+    setEventss(data);
+
+    return data;
+  };
+
   const router = useRouter();
   const deleteHandler = async (id: number) => {
     const res = await fetch(`/api/deleteEvent/${id}`, {
       method: 'DELETE',
     });
     const data = await res.json();
-    router.refresh();
+    fetchInstructorEvents();
     console.log(data);
   };
   return (
@@ -66,7 +80,7 @@ const Events = ({ data }: { data: Events[] }) => {
             </tr>
           </thead>
           <tbody className="bg-transparent ">
-            {data.map((event) => (
+            {eventss?.map((event) => (
               <tr key={event.title}>
                 {editMode && which === event.id ? (
                   <>

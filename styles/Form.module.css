@@ -1,11 +1,11 @@
 .input_group {
-  @apply flex justify-center px-2 border rounded-xl bg-slate-50;
+  @apply flex justify-center rounded-xl px-2 bg-slate-50 focus:outline-none focus:border-none;
   position: relative;
   align-items: center;
 }
 
 .input_text {
-  @apply w-full py-4 px-6 border rounded-xl bg-slate-50;
+  @apply w-full py-4 rounded-xl bg-slate-50;
   @apply focus:outline-none border-none;
 }
 .input_text:focus + * {

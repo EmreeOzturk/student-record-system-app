@@ -9,11 +9,14 @@ export async function POST(
 ) {
     const id = parseInt(params.id);
     const body = await req.json();
-    const data = await prisma.$queryRaw`UPDATE grades
+    const data = await prisma.$queryRaw`
+    UPDATE grades
     SET midterm_grade = ${parseInt(body.midterm_grade)},
     final_grade = ${parseInt(body.final_grade)}, 
     quiz = ${parseInt(body.quiz)}, 
     homework = ${parseInt(body.homework)}
     WHERE id = ${id}`;
+
+    
     return NextResponse.json(data);
 }

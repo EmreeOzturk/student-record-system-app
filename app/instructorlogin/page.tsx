@@ -5,7 +5,12 @@ import styles from '@/styles/Form.module.css';
 import Layout from '@/components/layout/Layout';
 import { SiMaildotru } from 'react-icons/si';
 import { HiFingerPrint } from 'react-icons/hi';
+import { useRouter } from 'next/navigation';
+import useLoginStore from '@/stores/useLogin';
 const InstructorLoginPage = () => {
+  const setIsLogin = useLoginStore((state: any) => state.setIsLogin);
+  const [id, setId] = React.useState('');
+  const router = useRouter();
   return (
     <Layout>
       <section className="w-3/4  mx-auto flex flex-col gap-2">
@@ -25,21 +30,32 @@ const InstructorLoginPage = () => {
               name="id"
               placeholder="Instructor ID"
               className={styles.input_text}
+              value={id}
+              onChange={(e) => {
+                setId(e.target.value);
+              }}
             />
             <SiMaildotru color="#999" />
           </div>
           <div className={styles.input_group}>
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
+              type="password"
+              name="password"
+              placeholder="Password"
               className={styles.input_text}
             />
             <HiFingerPrint color="#999" />
           </div>
 
           <div className="input-button">
-            <button type="submit" className={styles.button}>
+            <button
+              type="button"
+              onClick={() => {
+                setIsLogin(true);
+                router.push(`/instructor/${id}`);
+              }}
+              className={styles.button}
+            >
               Login
             </button>
           </div>

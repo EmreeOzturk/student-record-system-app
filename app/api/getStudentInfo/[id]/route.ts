@@ -6,7 +6,8 @@ export async function GET(
   { params }: { params: { id: string } },
 ) {
   const id = parseInt(params.id);
-  const data = await prisma.$queryRaw`SELECT
+  const data = await prisma.$queryRaw`
+    SELECT
     students.id as id,
     students.first_name as first_name,
     students.last_name as last_name,

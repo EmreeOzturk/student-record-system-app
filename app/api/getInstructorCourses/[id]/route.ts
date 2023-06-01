@@ -7,7 +7,8 @@ export async function GET(
   { params }: { params: { id: string } },
 ) {
   const id = parseInt(params.id);
-  const courseDetails = await prisma.$queryRaw`SELECT * FROM courses WHERE id 
+  const courseDetails = await prisma.$queryRaw`
+  SELECT * FROM courses WHERE id 
     IN (SELECT course_id FROM course_instructors WHERE instructor_id = ${id})`;
 
   return NextResponse.json(courseDetails);

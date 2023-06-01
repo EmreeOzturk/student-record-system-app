@@ -8,7 +8,8 @@ export async function GET(
   { params }: { params: { course: string } },
 ) {
   const courseId = parseInt(params.course);
-  const data = await prisma.$queryRaw`SELECT
+  const data = await prisma.$queryRaw`
+            SELECT
             students.id as student_id,
             students.first_name as first_name,
             students.last_name as last_name,

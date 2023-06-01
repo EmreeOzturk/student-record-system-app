@@ -24,7 +24,7 @@ const AddInstructor = () => {
 
   return (
     <div className="flex justify-center items-center w-screen h-screen bg-slate-300">
-      <form onSubmit={submitHandler} className="w-full max-w-lg p-4 space-y-4">
+      <form onSubmit={submitHandler} className="w-full border border-slate-600 rounded-xl max-w-lg p-4 space-y-4">
         <div className="flex flex-wrap">
           <label
             className="block w-full sm:w-1/2 pr-4 pl-4"

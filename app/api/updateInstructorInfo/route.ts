@@ -25,5 +25,5 @@ export async function POST(request: Request) {
     WHERE id = ${body?.['Instructor id']}
     `;
 
-  return NextResponse.json({ body });
+  return NextResponse.json({ data });
 }
